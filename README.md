@@ -74,3 +74,39 @@ export type Task = {
   userId: number | null;
 };
 ```
+
+### User
+
+```ts
+export type User = {
+  id: number;
+  name: string;
+};
+
+## 📌 API Endpoints
+
+### 👤 Users
+
+| Method | Endpoint        | Description              |
+|-------:|-----------------|--------------------------|
+| POST   | `/users`        | Create a new user        |
+| GET    | `/users`        | Get all users            |
+| GET    | `/users/:id`    | Get user by ID           |
+
+---
+
+### ✅ Tasks
+
+| Method | Endpoint                         | Description                           |
+|-------:|----------------------------------|---------------------------------------|
+| POST   | `/tasks`                         | Create a new task                     |
+| GET    | `/tasks`                         | Get all tasks                         |
+| GET    | `/tasks/:id`                     | Get task by ID                        |
+| POST   | `/tasks/:id/assign-user/:userId` | Assign task to a user                 |
+| PATCH  | `/tasks/:id`                     | Mark task as completed / incomplete   |
+| DELETE | `/tasks/:id`                     | Delete a task                         |
+
+---
+
+
+```
