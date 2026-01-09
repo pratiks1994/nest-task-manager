@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { User } from 'src/common/user.type';
+import { CreateUserDto } from './dto/create.user.dto';
 
 @Injectable()
 export class UsersDataStore {
@@ -9,7 +10,7 @@ export class UsersDataStore {
   ];
   private nextId = 3;
 
-  create(user: Omit<User, 'id'>) {
+  create(user: CreateUserDto) {
     const newUser = { ...user, id: this.nextId++ };
     this.users.push(newUser);
     return newUser;

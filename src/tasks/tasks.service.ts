@@ -1,7 +1,8 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { TaskDataStore } from './task.data.store';
-import { CreateTask, Task } from 'src/common/task.type';
 import { UsersService } from 'src/users/users.service';
+import { CreateTaskDto } from './dto/create.task.dto';
+import { UpdateTaskDto } from './dto/update.task.dto';
 
 @Injectable()
 export class TasksService {
@@ -18,11 +19,11 @@ export class TasksService {
     return this.taskDataStore.findOne(id);
   }
 
-  createTask(task: CreateTask) {
+  createTask(task: CreateTaskDto) {
     return this.taskDataStore.create(task);
   }
 
-  updateTask(id: number, task: Partial<Task>) {
+  updateTask(id: number, task: UpdateTaskDto) {
     return this.taskDataStore.update(id, task);
   }
 

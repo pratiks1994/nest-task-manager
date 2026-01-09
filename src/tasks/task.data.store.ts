@@ -1,5 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { CreateTask, Task } from 'src/common/task.type';
+import { Task } from 'src/common/task.type';
+import { CreateTaskDto } from './dto/create.task.dto';
+import { UpdateTaskDto } from './dto/update.task.dto';
 
 @Injectable()
 export class TaskDataStore {
@@ -23,7 +25,7 @@ export class TaskDataStore {
 
   constructor() {}
 
-  create(task: CreateTask): Task {
+  create(task: CreateTaskDto): Task {
     const newTask = {
       ...task,
       userId: task.userId || null,
@@ -50,7 +52,7 @@ export class TaskDataStore {
     return id;
   }
 
-  update(id: number, task: Partial<Task>): Task | null {
+  update(id: number, task: UpdateTaskDto): Task | null {
     const index = this.tasks.findIndex((task) => task.id === id);
     if (index === -1)
       throw new HttpException('Task not found', HttpStatus.NOT_FOUND);
