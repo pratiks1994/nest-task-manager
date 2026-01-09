@@ -102,7 +102,7 @@ export type User = {
 | POST   | `/tasks`                         | Create a new task                     |
 | GET    | `/tasks`                         | Get all tasks                         |
 | GET    | `/tasks/:id`                     | Get task by ID                        |
-| POST   | `/tasks/:id/assign-user/:userId` | Assign task to a user                 |
+| PATCH   | `/tasks/:id/assign-user/:userId`| Assign task to a user                 |
 | PATCH  | `/tasks/:id`                     | Mark task as completed / incomplete   |
 | DELETE | `/tasks/:id`                     | Delete a task                         |
 
